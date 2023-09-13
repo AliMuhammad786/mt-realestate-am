@@ -92,7 +92,7 @@ export default function Listing() {
       <div className="m-4 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg border-3 shadow-lg bg-white lg:space-x-5 z-10">
         <div className="w-full">
           <p className="text-2xl font-bold mb-3 text-blue-900">
-            {listing.name} - ${" "}
+            {listing.name} - ₨{" "}
             {listing.offer
               ? listing.discountedPrice
                   .toString()
@@ -100,7 +100,7 @@ export default function Listing() {
               : listing.regularPrice
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            {listing.type === "rent" ? " / month" : ""}
+            {listing.type === "rent" ? " / month" : ""}/-
           </p>
           <p className="flex items-center mt-6 mb-3 text-semibold ">
             <FaMapMarkerAlt className="text-green-700 mr-1" />
@@ -113,7 +113,8 @@ export default function Listing() {
             <p className="w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center text-semibold shadow-md">
               {listing.offer && (
                 <p>
-                  $ {+listing.regularPrice - +listing.discountedPrice} Discount
+                  ₨ {+listing.regularPrice - +listing.discountedPrice}/-
+                  Discount
                 </p>
               )}
             </p>
